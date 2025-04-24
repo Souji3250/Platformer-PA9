@@ -31,6 +31,7 @@ public:
 	void setHeight(float newHeight);
 	void setPosition(float newXVal, float newYVal);
 	void setSize(float newWidth, float newHeight);
+	void setVel(float newXVal, float newYVal);
 
 	//getters
 	float getXValue() const;
@@ -39,6 +40,7 @@ public:
 	float getHeight() const;
 	Vector2f getPosition();
 	Vector2f getSize() const;
+	Vector2f getVel() const;
 
 
 

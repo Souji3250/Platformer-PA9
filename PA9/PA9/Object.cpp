@@ -65,13 +65,20 @@ void Object::setHeight(float newHeight)
 //function for setting position of object
 void Object::setPosition(float newXVal, float newYVal)
 {
-	mShape.setPosition(Vector2f(newXVal, newYVal));
+	//mShape.setPosition(Vector2f(newXVal, newYVal));
+	mPosition = { newXVal, newYVal };
 }
 
 //function for setting the size of the Object
 void Object::setSize(float newWidth, float newHeight)
 {
 	mShape.setSize(Vector2f(newWidth, newHeight));
+}
+
+//function for setting velocity of object
+void Object::setVel(float newXVal, float newYVal)
+{
+	mVel = { newXVal,newYVal };
 }
 
 //function for getting the x value of the object
@@ -101,13 +108,19 @@ float Object::getHeight() const
 //function for getting the position of object
 Vector2f Object::getPosition()
 {
-	return mShape.getPosition();
+	return mPosition;
 }
 
 //function for geting the size of the object
 Vector2f Object::getSize() const
 {
 	return mShape.getSize();
+}
+
+//fuinction for getting velocity of object
+Vector2f Object::getVel() const
+{
+	return mVel;
 }
 
 
