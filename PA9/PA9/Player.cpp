@@ -1,45 +1,30 @@
 #include "Player.hpp"
-
+//function for the starting stats of the player
 Player::Player(float x, float y)
-    : Object(x, y, 30.f, 30.f, sf::Color::Blue), isJumping(false),
-    moveSpeed(200.f), jumpForce(-600.f), gravity(1000.f),
+    : Object(x, y, 30.f, 30.f, sf::Color::Cyan), Jumping(false),
+    moveSpeed(223.f), jumpPower(-500.f), gravity(900.f),
     score(0), highestPlatform(static_cast<int>(y))
 {
     mShape.setOutlineThickness(2.f);
-    mShape.setOutlineColor(sf::Color::White);
+    mShape.setOutlineColor(sf::Color::Yellow);
 }
-
-int Player::getScore() const
-{
-    return score;
-}
-
-int Player::getHighestPlatform() const
-{
-    return highestPlatform;
-}
-
-bool Player::getIsJumping() const
-{
-    return isJumping;
-}
-
+//gets the player to jump
 void Player::jump()
 {
-    if (!isJumping) 
+    if (!Jumping) 
     {
-        mVel.y = jumpForce;
-        isJumping = true;
+        mVel.y = jumpPower;
+        Jumping = true;
 
         mShape.setFillColor(sf::Color(100, 100, 255)); 
     }
 }
-
+//adds scores that the player earns based on points
 void Player::addScore(int points)
 {
     score += points;
 }
-
+//changes the highest platform that the plater has reached
 void Player::updateHighestPlatform(int platformY)
 {
     if (platformY < highestPlatform)
@@ -47,17 +32,16 @@ void Player::updateHighestPlatform(int platformY)
         int heightDifference = highestPlatform - platformY;
         highestPlatform = platformY;
 
-        addScore(10 + heightDifference / 10);
+        addScore(100 + heightDifference / 100);
 
-        jumpForce = -600.f - (abs(highestPlatform) / 1000.f * 50.f);
-        if (jumpForce < -800.f)
+        jumpPower = -500.f - (abs(highestPlatform) / 900.f * 50.f);
+        if (jumpPower < -700.f)
         {
-            jumpForce = -800.f;
+            jumpPower = -700.f;
         }
     }
 }
-
-
+//updates the game 
 void Player::update(float deltaTime)
 {
     mVel.y += gravity * deltaTime;
@@ -75,17 +59,32 @@ void Player::update(float deltaTime)
     }
     mShape.setPosition(mPosition);
 }
-
+//gets inputs from the player to make them move
 void Player::handleInput()
 {
     mVel.x = 0;
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
     {
         mVel.x = -moveSpeed;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
     {
         mVel.x = moveSpeed;
     }
+}
+//getting the score
+int Player::getScore() const
+{
+    return score;
+}
+//getting the highest platfrom from the player
+int Player::getHighestPlatform() const
+{
+    return highestPlatform;
+}
+//getting the jump from the player
+bool Player::getJump() const
+{
+    return Jumping;
 }
