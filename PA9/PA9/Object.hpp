@@ -41,11 +41,6 @@ public:
 	Vector2f getPosition();
 	Vector2f getSize() const;
 	Vector2f getVel() const;
-
-
-
-	//setters
-
 protected:
 	//protected member functions so that classes that inherit from this class will ahve access
 	RectangleShape mShape;

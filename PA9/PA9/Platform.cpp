@@ -1,7 +1,14 @@
 #include "Platform.hpp"
 
-Platform::Platform(float x, float y)
-: Object(x,y, 70.f, 20.f, Color(100, 250, 100)){}
+//function for platform 
+Platform::Platform(float newXVal, float newYVal): Object(newXVal,newYVal, 70.f, 20.f, Color::Green)//initializing the pllatforms and adding color to them
+{
 
-void Platform::update(float deltaTime)
-{ }
+}
+
+//function for updating platforms
+void Platform::update(float time)
+{
+	//nothing here since platforms are static they do not need to update
+}
+
