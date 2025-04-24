@@ -1,9 +1,8 @@
 #include "Platform.hpp"
 
 //function for platform 
-Platform::Platform(float newXVal, float newYVal): Object(newXVal,newYVal, 70.f, 20.f, Color::Green)//initializing the pllatforms and adding color to them
+Platform::Platform(float x, float y, float width, float height, Color color) : Object(x,y,width,height,color)//initializing the pllatforms and adding color to them
 {
-
 }
 
 //function for updating platforms

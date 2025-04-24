@@ -1,6 +1,7 @@
 #pragma once
 #include "Object.hpp"
-
+#include <SFML/Graphics.hpp>
+#include <SFML/Window/Keyboard.hpp>
 class Player : public Object
 {
 public:
@@ -25,17 +26,17 @@ public:
 
 private:
 	//players speed
-	const float moveSpeed;
+	const float mMoveSpeed;
 	//player score
-	int score;
+	int mScore;
 	//players height platform reached
-	int highestPlatform;
+	int mHighestPlatform;
 	//says rather the player is jumping or not
-	bool Jumping;
+	bool mJumping;
 	//gives the power of the jumps
-	float jumpPower;
+	float mJumpPower;
 	//how much gravity is effecting the player and their jumps
-	const float gravity;
+	const float mGravity;
 
 
 };
