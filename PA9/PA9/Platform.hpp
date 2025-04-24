@@ -8,8 +8,8 @@ public:
 	//constructor
 	Platform(float x, float y);
 
-	//member function
-	void update(float deltaTime) override;
+	//member function for update
+	void update(float deltaTime) override;//using override to make sure that when this upddate is called it is used in the context for platform.
 
 
 };
